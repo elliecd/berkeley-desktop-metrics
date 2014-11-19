@@ -223,7 +223,7 @@ form {
 
 var parseDate = d3.time.format("%Y-%m").parse,
     formatYear = d3.format("02d"),
-    formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
+    formatDate = function(d) { return d.getMonth() + " - " + formatYear(d.getFullYear(); };
 
 var margin = {top: 10, right: 20, bottom: 20, left: 60},
     width = 960 - margin.left - margin.right,
@@ -259,7 +259,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data.csv", function(error, data) {
+d3.tsv("data.tsv", function(error, data) {
 
   data.forEach(function(d) {
     d.date = parseDate(d.date);
