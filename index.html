@@ -221,9 +221,10 @@ form {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
+
 var parseDate = d3.time.format("%Y-%m").parse,
     formatYear = d3.format("02d"),
-    formatDate = function(d) { return d.getMonth() + " - " + formatYear(d.getFullYear(); };
+    formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
 
 var margin = {top: 10, right: 20, bottom: 20, left: 60},
     width = 960 - margin.left - margin.right,
